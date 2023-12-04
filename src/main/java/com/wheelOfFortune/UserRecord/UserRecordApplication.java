@@ -42,5 +42,10 @@ public class UserRecordApplication {
         this.userRecordRepository.deleteAll();
     }
 
+    @ShellMethod("remove userid records")
+    public void removeByUserRecords(long id) {
+        this.userRecordRepository.deleteById(id);
+    }
+
 
 }

@@ -8,5 +8,6 @@ import java.util.List;
 public interface UserRecordRepository extends DatastoreRepository<UserRecord, Long>  {
 
     List<UserRecord> findByUserId(String userId);
+    List<UserRecord> findById(long id);
 
 }

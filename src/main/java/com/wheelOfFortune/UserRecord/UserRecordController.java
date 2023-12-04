@@ -42,6 +42,18 @@ public class UserRecordController {
         return userRecordList;
     }
 
+    @DeleteMapping("/deleteUserRecord")
+    @CrossOrigin(origins = "*")
+    public String deleteUserRecord(@RequestParam Long id) {
+        Optional<UserRecord> userRecordOptional = userRecordRepository.findById(id);
+        if (userRecordOptional.isPresent()) {
+            userRecordRepository.deleteById(id);
+            return "User record deleted successfully";
+        } else {
+            return "User record not found";
+        }
+    }
+
 //    @GetMapping("/findByUserId")
 //    @ResponseBody
 //    @CrossOrigin(origins = "*")
